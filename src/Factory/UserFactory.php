@@ -4,6 +4,7 @@ namespace App\Factory;
 
 use App\Entity\User;
 use App\Repository\UserRepository;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
 use Zenstruck\Foundry\RepositoryProxy;
@@ -27,12 +28,12 @@ use Zenstruck\Foundry\RepositoryProxy;
  * @method User|Proxy create(array|callable $attributes = [])
  */
 final class UserFactory extends ModelFactory {
-	private \Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface $passwordEncoder;
+	private UserPasswordHasherInterface $passwordHasher;
 
-	public function __construct(\Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface $passwordEncoder) {
+	public function __construct(UserPasswordHasherInterface $passwordHasher) {
 		parent::__construct();
 
-		$this->passwordEncoder = $passwordEncoder;
+		$this->passwordHasher = $passwordHasher;
 	}
 
 	protected function getDefaults(): array {
@@ -50,7 +51,7 @@ final class UserFactory extends ModelFactory {
 			->afterInstantiate(function (User $user) {
 				if ($user->getPlainPassword()) {
 					$user->setPassword(
-						$this->passwordEncoder->encodePassword($user, $user->getPlainPassword())
+						$this->passwordHasher->hashPassword($user, $user->getPlainPassword())
 					);
 				}
 			});
