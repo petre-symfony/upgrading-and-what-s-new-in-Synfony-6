@@ -7,15 +7,11 @@ use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\LevelSetList;
 
 return static function (RectorConfig $rectorConfig): void {
-	$rectorConfig->paths([
-		__DIR__ . '/src'
+	$rectorConfig->symfonyContainerXml(__DIR__ . '/var/cache/dev/App_KernelDevDebugContainer.xml');
+
+	$rectorConfig->sets([
+		SymfonySetList::SYMFONY_52,
+		SymfonySetList::SYMFONY_CODE_QUALITY,
+		SymfonySetList::SYMFONY_CONSTRUCTOR_INJECTION,
 	]);
-
-	// register a single rule
-	$rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
-
-	// define sets of rules
-	//    $rectorConfig->sets([
-	//        LevelSetList::UP_TO_PHP_74
-	//    ]);
 };
