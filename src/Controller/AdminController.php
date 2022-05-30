@@ -12,7 +12,7 @@ class AdminController extends AbstractController {
 	/**
 	 * @Route("/admin", name="admin_dashboard")
 	 */
-	public function dashboard(ChartBuilderInterface $chartBuilder) {
+	public function dashboard(ChartBuilderInterface $chartBuilder): \Symfony\Component\HttpFoundation\Response {
 		$chart = $chartBuilder->createChart(Chart::TYPE_LINE);
 		$chart->setData([
 			'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -56,14 +56,14 @@ class AdminController extends AbstractController {
 	/**
 	 * @Route("/admin/login")
 	 */
-	public function adminLogin() {
+	public function adminLogin(): \Symfony\Component\HttpFoundation\Response {
 		return new Response('Pretend admin login page, that should be public');
 	}
 
 	/**
 	 * @Route("/admin/comments")
 	 */
-	public function adminComments() {
+	public function adminComments(): \Symfony\Component\HttpFoundation\Response {
 		$this->denyAccessUnlessGranted('ROLE_COMMENT_ADMIN');
 
 		return new Response('Pretend comments admin page');

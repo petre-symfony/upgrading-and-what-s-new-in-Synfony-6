@@ -18,7 +18,7 @@ class RegistrationController extends AbstractController {
 	/**
 	 * @Route("/register", name="app_register")
 	 */
-	public function register(Request $request, UserPasswordEncoderInterface $userPasswordEncoder, VerifyEmailHelperInterface $verifyEmailHelper): Response {
+	public function register(Request $request, \Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface $userPasswordEncoder, VerifyEmailHelperInterface $verifyEmailHelper): Response {
 		$user = new User();
 		$form = $this->createForm(RegistrationFormType::class, $user);
 		$form->handleRequest($request);
@@ -90,7 +90,7 @@ class RegistrationController extends AbstractController {
 	/**
 	 * @Route("/verify/resend", name="app_verify_resend_email")
 	 */
-	public function resendVerifyEmail() {
+	public function resendVerifyEmail(): \Symfony\Component\HttpFoundation\Response {
 		return $this->render('registration/resend_verify_email.html.twig');
 	}
 }

@@ -28,9 +28,9 @@ use Zenstruck\Foundry\RepositoryProxy;
  * @method User|Proxy create(array|callable $attributes = [])
  */
 final class UserFactory extends ModelFactory {
-	private UserPasswordEncoderInterface $passwordEncoder;
+	private \Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface $passwordEncoder;
 
-	public function __construct(UserPasswordEncoderInterface $passwordEncoder) {
+	public function __construct(\Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface $passwordEncoder) {
 		parent::__construct();
 
 		$this->passwordEncoder = $passwordEncoder;
