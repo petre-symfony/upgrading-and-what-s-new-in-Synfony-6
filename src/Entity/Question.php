@@ -18,24 +18,32 @@ class Question {
 	#[ORM\GeneratedValue]
 	#[ORM\Column(type: 'integer')]
 	private $id;
+
 	#[ORM\Column(type: 'string', length: 255)]
 	private $name;
+
 	/**
 	 * @Gedmo\Slug(fields={"name"})
 	 */
 	#[ORM\Column(type: 'string', length: 100, unique: true)]
 	private $slug;
+
 	#[ORM\Column(type: 'text')]
 	private $question;
+
 	#[ORM\Column(type: 'datetime', nullable: true)]
 	private $askedAt;
+
 	#[ORM\Column(type: 'integer')]
 	private int $votes = 0;
+
 	#[ORM\OneToMany(targetEntity: Answer::class, mappedBy: 'question', fetch: 'EXTRA_LAZY')]
 	#[ORM\OrderBy(['createdAt' => 'DESC'])]
 	private $answers;
+
 	#[ORM\OneToMany(targetEntity: QuestionTag::class, mappedBy: 'question')]
 	private $questionTags;
+
 	#[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'questions')]
 	#[ORM\JoinColumn(nullable: false)]
 	private $owner;

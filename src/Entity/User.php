@@ -16,23 +16,30 @@ class User implements UserInterface {
 	#[ORM\GeneratedValue]
 	#[ORM\Column(type: 'integer')]
 	private $id;
+
 	#[ORM\Column(type: 'string', length: 180, unique: true)]
 	private $email;
+
 	#[ORM\Column(type: 'json')]
 	private array $roles = [];
+
 	/**
 	 * @var string|null The hashed password
 	 */
 	#[ORM\Column(type: 'string')]
 	private ?string $password;
+
 	/**
 	 * @var string Non-mapped field
 	 */
 	private ?string $plainPassword = null;
+
 	#[ORM\Column(type: 'string', length: 255)]
 	private $firstName;
+
 	#[ORM\OneToMany(targetEntity: Question::class, mappedBy: 'owner')]
 	private $questions;
+
 	#[ORM\Column(type: 'boolean')]
 	private bool $isVerified = false;
 
