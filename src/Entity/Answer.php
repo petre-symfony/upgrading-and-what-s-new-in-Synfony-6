@@ -20,19 +20,19 @@ class Answer {
 	private ?int $id = null;
 
 	#[ORM\Column(type: 'text')]
-	private string $content = '';
+	private ?string $content = null;
 
-	#[ORM\Column(type: 'string', length: 255)]
-	private $username;
+	#[ORM\Column()]
+	private ?string $username = null;
 
-	#[ORM\Column(type: 'integer')]
+	#[ORM\Column()]
 	private int $votes = 0;
 
 	#[ORM\ManyToOne(inversedBy: 'answers')]
 	#[ORM\JoinColumn(nullable: false)]
 	private ?Question $question = null;
 
-	#[ORM\Column(type: 'string', length: 15)]
+	#[ORM\Column(length: 15)]
 	private string $status = self::STATUS_NEEDS_APPROVAL;
 
 	public function getId(): ?int {
