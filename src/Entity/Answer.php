@@ -30,7 +30,7 @@ class Answer {
 
 	#[ORM\ManyToOne(targetEntity: Question::class, inversedBy: 'answers')]
 	#[ORM\JoinColumn(nullable: false)]
-	private $question;
+	private ?Question $question;
 
 	#[ORM\Column(type: 'string', length: 15)]
 	private string $status = self::STATUS_NEEDS_APPROVAL;
