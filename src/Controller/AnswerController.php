@@ -34,7 +34,7 @@ class AnswerController extends BaseController {
 			'answer' => $answer->getId(),
 		]);
 
-		$data = json_decode($request->getContent(), true);
+		$data = json_decode($request->getContent(), true, 512, JSON_THROW_ON_ERROR);
 		$direction = $data['direction'] ?? 'up';
 
 		// use real logic here to save this to the database

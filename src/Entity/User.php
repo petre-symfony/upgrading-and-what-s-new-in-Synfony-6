@@ -29,18 +29,18 @@ class User implements UserInterface {
 	/**
 	 * @ORM\Column(type="json")
 	 */
-	private $roles = [];
+	private array $roles = [];
 
 	/**
 	 * @var string The hashed password
 	 * @ORM\Column(type="string")
 	 */
-	private $password;
+	private string $password;
 
 	/**
 	 * @var string Non-mapped field
 	 */
-	private $plainPassword = null;
+	private ?string $plainPassword = null;
 
 	/**
 	 * @ORM\Column(type="string", length=255)
@@ -55,7 +55,7 @@ class User implements UserInterface {
 	/**
 	 * @ORM\Column(type="boolean")
 	 */
-	private $isVerified = false;
+	private bool $isVerified = false;
 
 	public function __construct() {
 		$this->questions = new ArrayCollection();

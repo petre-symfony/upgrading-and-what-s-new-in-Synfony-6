@@ -47,7 +47,7 @@ class Question {
 	/**
 	 * @ORM\Column(type="integer")
 	 */
-	private $votes = 0;
+	private int $votes = 0;
 
 	/**
 	 * @ORM\OneToMany(targetEntity=Answer::class, mappedBy="question", fetch="EXTRA_LAZY")

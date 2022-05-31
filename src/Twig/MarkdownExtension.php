@@ -7,10 +7,8 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
 class MarkdownExtension extends AbstractExtension {
-	private $markdownHelper;
-
-	public function __construct(MarkdownHelper $markdownHelper) {
-		$this->markdownHelper = $markdownHelper;
+	public function __construct(private MarkdownHelper $markdownHelper)
+	{
 	}
 
 	public function getFilters(): array {

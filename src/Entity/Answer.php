@@ -36,7 +36,7 @@ class Answer {
 	/**
 	 * @ORM\Column(type="integer")
 	 */
-	private $votes = 0;
+	private int $votes = 0;
 
 	/**
 	 * @ORM\ManyToOne(targetEntity=Question::class, inversedBy="answers")
@@ -47,7 +47,7 @@ class Answer {
 	/**
 	 * @ORM\Column(type="string", length=15)
 	 */
-	private $status = self::STATUS_NEEDS_APPROVAL;
+	private string $status = self::STATUS_NEEDS_APPROVAL;
 
 	public function getId(): ?int {
 		return $this->id;
