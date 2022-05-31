@@ -16,6 +16,7 @@ class AnswerController extends BaseController {
 		$answers = $answerRepository->findMostPopular(
 			$request->get('q')
 		);
+
 		return $this->render('answer/popularAnswers.html.twig', [
 			'answers' => $answers,
 		]);
@@ -39,6 +40,7 @@ class AnswerController extends BaseController {
 			$answer->setVotes($answer->getVotes() - 1);
 		}
 		$entityManager->flush();
+
 		return $this->json(['votes' => $answer->getVotes()]);
 	}
 }

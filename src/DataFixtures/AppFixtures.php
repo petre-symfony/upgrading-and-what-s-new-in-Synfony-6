@@ -24,13 +24,13 @@ class AppFixtures extends Fixture {
 		TagFactory::createMany(100);
 
 		$questions = QuestionFactory::createMany(20, fn() => [
-				'owner' => UserFactory::random(),
-			]);
+			'owner' => UserFactory::random(),
+		]);
 
 		QuestionTagFactory::createMany(100, fn() => [
-				'tag' => TagFactory::random(),
-				'question' => QuestionFactory::random(),
-			]);
+			'tag' => TagFactory::random(),
+			'question' => QuestionFactory::random(),
+		]);
 
 		QuestionFactory::new()
 			->unpublished()
@@ -38,11 +38,11 @@ class AppFixtures extends Fixture {
 			->create();
 
 		AnswerFactory::createMany(100, fn() => [
-				'question' => $questions[array_rand($questions)],
-			]);
+			'question' => $questions[array_rand($questions)],
+		]);
 		AnswerFactory::new(fn() => [
-				'question' => $questions[array_rand($questions)],
-			])->needsApproval()->many(20)->create();
+			'question' => $questions[array_rand($questions)],
+		])->needsApproval()->many(20)->create();
 
 		$manager->flush();
 	}

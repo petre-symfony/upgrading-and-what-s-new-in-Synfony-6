@@ -10,8 +10,7 @@ use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class QuestionVoter extends Voter {
-	public function __construct(private Security $security)
-	{
+	public function __construct(private Security $security) {
 	}
 
 	protected function supports(string $attribute, $subject): bool {
@@ -35,6 +34,7 @@ class QuestionVoter extends Voter {
 		if ($this->security->isGranted('ROLE_ADMIN')) {
 			return true;
 		}
+
 		return match ($attribute) {
 			'EDIT' => $user === $subject->getOwner(),
 			default => false,

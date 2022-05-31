@@ -49,6 +49,7 @@ class RegistrationController extends AbstractController {
 
 			return $this->redirectToRoute('app_homepage');
 		}
+
 		return $this->render('registration/register.html.twig', [
 			'registrationForm' => $form->createView(),
 		]);
@@ -74,6 +75,7 @@ class RegistrationController extends AbstractController {
 		$user->setIsVerified(true);
 		$entityManager->flush();
 		$this->addFlash('success', 'Account Verified! You can now log in.');
+
 		return $this->redirectToRoute('app_login');
 	}
 

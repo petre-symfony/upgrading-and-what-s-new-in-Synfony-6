@@ -27,8 +27,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
 	public const LOGIN_ROUTE = 'app_login';
 
-	public function __construct(private SessionInterface $session, private EntityManagerInterface $entityManager, private UrlGeneratorInterface $urlGenerator, private CsrfTokenManagerInterface $csrfTokenManager, private UserPasswordHasherInterface $passwordHasher)
-	{
+	public function __construct(private SessionInterface $session, private EntityManagerInterface $entityManager, private UrlGeneratorInterface $urlGenerator, private CsrfTokenManagerInterface $csrfTokenManager, private UserPasswordHasherInterface $passwordHasher) {
 	}
 
 	public function supports(Request $request) {

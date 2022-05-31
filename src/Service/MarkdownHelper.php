@@ -7,8 +7,7 @@ use Psr\Log\LoggerInterface;
 use Symfony\Contracts\Cache\CacheInterface;
 
 class MarkdownHelper {
-	public function __construct(private MarkdownParserInterface $markdownParser, private CacheInterface $cache, private bool $isDebug, private LoggerInterface $logger)
-	{
+	public function __construct(private MarkdownParserInterface $markdownParser, private CacheInterface $cache, private bool $isDebug, private LoggerInterface $logger) {
 	}
 
 	public function parse(string $source): string {

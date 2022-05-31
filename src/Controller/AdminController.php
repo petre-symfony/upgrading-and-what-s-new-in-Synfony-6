@@ -43,6 +43,7 @@ class AdminController extends AbstractController {
 				],
 			],
 		]);
+
 		return $this->render('admin/dashboard.html.twig', [
 			'chart' => $chart,
 			'chart2' => $chart2,
@@ -57,6 +58,7 @@ class AdminController extends AbstractController {
 	#[Route(path: '/admin/comments')]
 	public function adminComments(): Response {
 		$this->denyAccessUnlessGranted('ROLE_COMMENT_ADMIN');
+
 		return new Response('Pretend comments admin page');
 	}
 }

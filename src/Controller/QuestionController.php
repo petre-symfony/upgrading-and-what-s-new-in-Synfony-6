@@ -24,6 +24,7 @@ class QuestionController extends AbstractController {
 		$pagerfanta = new Pagerfanta(new QueryAdapter($queryBuilder));
 		$pagerfanta->setMaxPerPage(5);
 		$pagerfanta->setCurrentPage($page);
+
 		return $this->render('question/homepage.html.twig', [
 			'pager' => $pagerfanta,
 		]);
@@ -40,6 +41,7 @@ class QuestionController extends AbstractController {
 		if ($this->isDebug) {
 			$this->logger->info('We are in debug mode!');
 		}
+
 		return $this->render('question/show.html.twig', [
 			'question' => $question,
 		]);
@@ -48,6 +50,7 @@ class QuestionController extends AbstractController {
 	#[Route(path: '/questions/edit/{slug}', name: 'app_question_edit')]
 	public function edit(Question $question): Response {
 		$this->denyAccessUnlessGranted('EDIT', $question);
+
 		return $this->render('question/edit.html.twig', [
 			'question' => $question,
 		]);
@@ -62,6 +65,7 @@ class QuestionController extends AbstractController {
 			$question->downVote();
 		}
 		$entityManager->flush();
+
 		return $this->redirectToRoute('app_question_show', [
 			'slug' => $question->getSlug(),
 		]);
