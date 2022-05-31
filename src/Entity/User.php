@@ -14,33 +14,33 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class User implements UserInterface {
 	#[ORM\Id]
 	#[ORM\GeneratedValue]
-	#[ORM\Column(type: 'integer')]
-	private $id;
+	#[ORM\Column()]
+	private ?int $id = null;
 
-	#[ORM\Column(type: 'string', length: 180, unique: true)]
-	private $email;
+	#[ORM\Column(length: 180, unique: true)]
+	private ?string $email = null;
 
 	#[ORM\Column(type: 'json')]
 	private array $roles = [];
 
 	/**
-	 * @var string|null The hashed password
+	 * The hashed password
 	 */
-	#[ORM\Column(type: 'string')]
+	#[ORM\Column()]
 	private ?string $password;
 
 	/**
-	 * @var string Non-mapped field
+	 * string Non-mapped field
 	 */
 	private ?string $plainPassword = null;
 
-	#[ORM\Column(type: 'string', length: 255)]
-	private $firstName;
+	#[ORM\Column()]
+	private ?string $firstName = null;
 
 	#[ORM\OneToMany(targetEntity: Question::class, mappedBy: 'owner')]
-	private $questions;
+	private Collection $questions;
 
-	#[ORM\Column(type: 'boolean')]
+	#[ORM\Column()]
 	private bool $isVerified = false;
 
 	public function __construct() {

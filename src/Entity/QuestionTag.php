@@ -9,8 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
 class QuestionTag {
 	#[ORM\Id]
 	#[ORM\GeneratedValue]
-	#[ORM\Column(type: 'integer')]
-	private $id;
+	#[ORM\Column()]
+	private ?int $id = null;
 
 	#[ORM\ManyToOne(inversedBy: 'questionTags')]
 	#[ORM\JoinColumn(nullable: false)]
@@ -20,8 +20,8 @@ class QuestionTag {
 	#[ORM\JoinColumn(nullable: false)]
 	private ?Tag $tag = null;
 
-	#[ORM\Column(type: 'datetime_immutable')]
-	private $taggedAt;
+	#[ORM\Column()]
+	private \DateTimeImmutable $taggedAt;
 
 	public function __construct() {
 		$this->taggedAt = new \DateTimeImmutable();
