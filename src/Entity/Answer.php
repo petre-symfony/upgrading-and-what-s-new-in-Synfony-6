@@ -6,47 +6,27 @@ use App\Repository\AnswerRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 
-/**
- * @ORM\Entity(repositoryClass=AnswerRepository::class)
- */
+#[ORM\Entity(repositoryClass: AnswerRepository::class)]
 class Answer {
 	use TimestampableEntity;
 
 	public const STATUS_NEEDS_APPROVAL = 'needs_approval';
 	public const STATUS_SPAM = 'spam';
 	public const STATUS_APPROVED = 'approved';
-
-	/**
-	 * @ORM\Id
-	 * @ORM\GeneratedValue
-	 * @ORM\Column(type="integer")
-	 */
+	#[ORM\Id]
+	#[ORM\GeneratedValue]
+	#[ORM\Column(type: 'integer')]
 	private $id;
-
-	/**
-	 * @ORM\Column(type="text")
-	 */
+	#[ORM\Column(type: 'text')]
 	private $content;
-
-	/**
-	 * @ORM\Column(type="string", length=255)
-	 */
+	#[ORM\Column(type: 'string', length: 255)]
 	private $username;
-
-	/**
-	 * @ORM\Column(type="integer")
-	 */
+	#[ORM\Column(type: 'integer')]
 	private int $votes = 0;
-
-	/**
-	 * @ORM\ManyToOne(targetEntity=Question::class, inversedBy="answers")
-	 * @ORM\JoinColumn(nullable=false)
-	 */
+	#[ORM\ManyToOne(targetEntity: Question::class, inversedBy: 'answers')]
+	#[ORM\JoinColumn(nullable: false)]
 	private $question;
-
-	/**
-	 * @ORM\Column(type="string", length=15)
-	 */
+	#[ORM\Column(type: 'string', length: 15)]
 	private string $status = self::STATUS_NEEDS_APPROVAL;
 
 	public function getId(): ?int {
