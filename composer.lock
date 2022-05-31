@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c081220f730b6521c738e3f7d716cdfa",
+    "content-hash": "0854f2b592cdfdc6782ddaeb18b49e79",
     "packages": [
         {
             "name": "babdev/pagerfanta-bundle",
@@ -3640,23 +3640,23 @@
         },
         {
             "name": "sentry/sentry-symfony",
-            "version": "4.2.10",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-symfony.git",
-                "reference": "d1d2895c028676113cb191516b80b91abcde31f3"
+                "reference": "12d0f9674b8a829fdf1a2cfbb3fd6b94ec4de893"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-symfony/zipball/d1d2895c028676113cb191516b80b91abcde31f3",
-                "reference": "d1d2895c028676113cb191516b80b91abcde31f3",
+                "url": "https://api.github.com/repos/getsentry/sentry-symfony/zipball/12d0f9674b8a829fdf1a2cfbb3fd6b94ec4de893",
+                "reference": "12d0f9674b8a829fdf1a2cfbb3fd6b94ec4de893",
                 "shasum": ""
             },
             "require": {
                 "jean85/pretty-package-versions": "^1.5 || ^2.0",
                 "php": "^7.2||^8.0",
                 "php-http/discovery": "^1.11",
-                "sentry/sdk": "^3.1",
+                "sentry/sdk": "^3.2",
                 "symfony/cache-contracts": "^1.1||^2.4||^3.0",
                 "symfony/config": "^3.4.44||^4.4.20||^5.0.11||^6.0",
                 "symfony/console": "^3.4.44||^4.4.20||^5.0.11||^6.0",
@@ -3701,7 +3701,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2.x-dev",
+                    "dev-master": "4.3.x-dev",
                     "releases/3.2.x": "3.2.x-dev",
                     "releases/2.x": "2.x-dev",
                     "releases/1.x": "1.x-dev"
@@ -3739,7 +3739,7 @@
             ],
             "support": {
                 "issues": "https://github.com/getsentry/sentry-symfony/issues",
-                "source": "https://github.com/getsentry/sentry-symfony/tree/4.2.10"
+                "source": "https://github.com/getsentry/sentry-symfony/tree/4.3.0"
             },
             "funding": [
                 {
@@ -3751,7 +3751,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2022-05-17T08:20:17+00:00"
+            "time": "2022-05-30T12:09:35+00:00"
         },
         {
             "name": "stof/doctrine-extensions-bundle",
@@ -9697,16 +9697,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.7.3",
+            "version": "1.7.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "48c4621b1a6dde32aab2e9a79658b843ffb614f7"
+                "reference": "1af9271ea529f995e57a1f493bebba6b830a97d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/48c4621b1a6dde32aab2e9a79658b843ffb614f7",
-                "reference": "48c4621b1a6dde32aab2e9a79658b843ffb614f7",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/1af9271ea529f995e57a1f493bebba6b830a97d0",
+                "reference": "1af9271ea529f995e57a1f493bebba6b830a97d0",
                 "shasum": ""
             },
             "require": {
@@ -9732,7 +9732,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/1.7.3"
+                "source": "https://github.com/phpstan/phpstan/tree/1.7.6"
             },
             "funding": [
                 {
@@ -9752,7 +9752,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-29T11:36:09+00:00"
+            "time": "2022-05-30T21:29:45+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -11764,7 +11764,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.4.0 || ^8.0.0",
+        "php": "^8.1.0",
         "ext-ctype": "*",
         "ext-iconv": "*"
     },
