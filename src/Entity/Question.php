@@ -44,9 +44,9 @@ class Question {
 	#[ORM\OneToMany(targetEntity: QuestionTag::class, mappedBy: 'question')]
 	private $questionTags;
 
-	#[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'questions')]
+	#[ORM\ManyToOne(inversedBy: 'questions')]
 	#[ORM\JoinColumn(nullable: false)]
-	private $owner;
+	private ?User $owner = null;
 
 	public function __construct() {
 		$this->answers = new ArrayCollection();

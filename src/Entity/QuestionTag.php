@@ -12,13 +12,13 @@ class QuestionTag {
 	#[ORM\Column(type: 'integer')]
 	private $id;
 
-	#[ORM\ManyToOne(targetEntity: Question::class, inversedBy: 'questionTags')]
+	#[ORM\ManyToOne(inversedBy: 'questionTags')]
 	#[ORM\JoinColumn(nullable: false)]
-	private $question;
+	private ?Question $question = null;
 
-	#[ORM\ManyToOne(targetEntity: Tag::class)]
+	#[ORM\ManyToOne()]
 	#[ORM\JoinColumn(nullable: false)]
-	private $tag;
+	private ?Tag $tag = null;
 
 	#[ORM\Column(type: 'datetime_immutable')]
 	private $taggedAt;

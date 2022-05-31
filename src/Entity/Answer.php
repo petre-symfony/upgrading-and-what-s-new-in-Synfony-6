@@ -28,9 +28,9 @@ class Answer {
 	#[ORM\Column(type: 'integer')]
 	private int $votes = 0;
 
-	#[ORM\ManyToOne(targetEntity: Question::class, inversedBy: 'answers')]
+	#[ORM\ManyToOne(inversedBy: 'answers')]
 	#[ORM\JoinColumn(nullable: false)]
-	private ?Question $question;
+	private ?Question $question = null;
 
 	#[ORM\Column(type: 'string', length: 15)]
 	private string $status = self::STATUS_NEEDS_APPROVAL;
