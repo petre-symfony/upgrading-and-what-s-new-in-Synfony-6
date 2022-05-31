@@ -32,10 +32,10 @@ class User implements UserInterface {
 	private array $roles = [];
 
 	/**
-	 * @var string The hashed password
+	 * @var string|null The hashed password
 	 * @ORM\Column(type="string")
 	 */
-	private string $password;
+	private ?string $password;
 
 	/**
 	 * @var string Non-mapped field
