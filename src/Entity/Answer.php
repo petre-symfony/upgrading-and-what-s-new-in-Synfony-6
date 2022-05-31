@@ -20,7 +20,7 @@ class Answer {
 	private ?int $id = null;
 
 	#[ORM\Column(type: 'text')]
-	private $content;
+	private string $content = '';
 
 	#[ORM\Column(type: 'string', length: 255)]
 	private $username;
