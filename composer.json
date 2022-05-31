@@ -35,7 +35,7 @@
         "symfony/serializer": "5.4.*",
         "symfony/stopwatch": "5.4.*",
         "symfony/twig-bundle": "5.4.*",
-        "symfony/ux-chartjs": "^1.0",
+        "symfony/ux-chartjs": "^2.0",
         "symfony/validator": "5.4.*",
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "5.4.*",
