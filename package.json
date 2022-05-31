@@ -1,5 +1,6 @@
 {
     "devDependencies": {
+<<<<<<< ours
         "@popperjs/core": "^2.10.2",
         "@symfony/stimulus-bridge": "^2.0.0",
         "@symfony/ux-chartjs": "file:vendor/symfony/ux-chartjs/Resources/assets",
@@ -7,6 +8,11 @@
         "axios": "^0.22.0",
         "bootstrap": "^5.0.0",
         "chart.js": "^2.9.4",
+=======
+        "@hotwired/stimulus": "^3.0.0",
+        "@symfony/stimulus-bridge": "^3.0.0",
+        "@symfony/webpack-encore": "^2.0.0",
+>>>>>>> theirs
         "core-js": "^3.0.0",
         "regenerator-runtime": "^0.13.2",
         "stimulus": "^2.0.0",
