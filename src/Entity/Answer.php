@@ -16,8 +16,8 @@ class Answer {
 
 	#[ORM\Id]
 	#[ORM\GeneratedValue]
-	#[ORM\Column(type: 'integer')]
-	private $id;
+	#[ORM\Column()]
+	private ?int $id = null;
 
 	#[ORM\Column(type: 'text')]
 	private $content;
