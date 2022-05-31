@@ -7,7 +7,7 @@ $config = new PhpCsFixer\Config();
 return $config->setRules([
 	'@Symfony' => true,
 	'yoda_style' => false,
-	'class_attribute_separation' => [
+	'class_attributes_separation' => [
 		'elements' => ['method' => 'one', 'property' => 'one', 'trait_import' => 'one']
 	]
 ])
