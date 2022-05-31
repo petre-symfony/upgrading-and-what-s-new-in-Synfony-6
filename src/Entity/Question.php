@@ -21,10 +21,8 @@ class Question {
 
 	#[ORM\Column()]
 	private ?string $name = null;
-
-	/**
-	 * @Gedmo\Slug(fields={"name"})
-	 */
+	
+	#[Gedmo\Slug(fields: ['name'])]
 	#[ORM\Column(length: 100, unique: true)]
 	private ?string $slug = null;
 
