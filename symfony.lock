@@ -146,8 +146,8 @@
     "nikic/php-parser": {
         "version": "v4.3.0"
     },
-    "pagerfanta/pagerfanta": {
-        "version": "v2.7.2"
+    "pagerfanta/core": {
+        "version": "v3.6.1"
     },
     "phar-io/manifest": {
         "version": "2.0.3"
@@ -550,9 +550,6 @@
         "version": "v5.0.7"
     },
     "symfony/security-csrf": {
-        "version": "v5.0.11"
-    },
-    "symfony/security-guard": {
         "version": "v5.0.11"
     },
     "symfony/security-http": {
