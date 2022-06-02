@@ -27,6 +27,7 @@
         "symfony/flex": "^2.1",
         "symfony/form": "6.0.*",
         "symfony/framework-bundle": "6.0.*",
+        "symfony/mailer": "6.0.*",
         "symfony/monolog-bundle": "^3.0",
         "symfony/property-access": "6.0.*",
         "symfony/property-info": "6.0.*",
@@ -103,7 +104,8 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "6.0.*"
+            "require": "6.0.*",
+            "docker": true
         }
     }
 }
