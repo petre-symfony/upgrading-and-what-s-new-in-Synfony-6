@@ -67,15 +67,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface {
 	 *
 	 * @see UserInterface
 	 */
-	public function getUsername(): string {
-		return (string)$this->email;
-	}
-
-	/**
-	 * A visual identifier that represents this user.
-	 *
-	 * @see UserInterface
-	 */
 	public function getUserIdentifier(): string {
 		return (string)$this->email;
 	}
@@ -116,16 +107,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface {
 
 	public function setPlainPassword(?string $plainPassword): void {
 		$this->plainPassword = $plainPassword;
-	}
-
-	/**
-	 * Returning a salt is only needed, if you are not using a modern
-	 * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
-	 *
-	 * @see UserInterface
-	 */
-	public function getSalt(): ?string {
-		return null;
 	}
 
 	/**
