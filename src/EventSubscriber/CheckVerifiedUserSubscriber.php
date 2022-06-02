@@ -20,7 +20,7 @@ class CheckVerifiedUserSubscriber implements EventSubscriberInterface {
 		throw new AccountNotVerifiedAuthenticationException();
 	}
 
-	public static function getSubscribedEvents() {
+	public static function getSubscribedEvents(): array {
 		return [
 			AuthenticationSuccessEvent::class => 'onAuthenticationSuccessEvent',
 		];
