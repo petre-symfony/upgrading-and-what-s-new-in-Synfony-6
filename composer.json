@@ -10,7 +10,7 @@
         "babdev/pagerfanta-bundle": "^3.6",
         "composer/package-versions-deprecated": "^1.11",
         "doctrine/annotations": "^1.13",
-        "doctrine/dbal": "^3.5",
+        "doctrine/dbal": "^3.3",
         "doctrine/doctrine-bundle": "^2.0",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.0",
