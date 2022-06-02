@@ -6,6 +6,7 @@ use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -20,19 +21,20 @@ use Symfony\Component\Security\Csrf\CsrfToken;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Security\Guard\Authenticator\AbstractFormLoginAuthenticator;
 use Symfony\Component\Security\Guard\PasswordAuthenticatedInterface;
+use Symfony\Component\Security\Http\Authenticator\AbstractLoginFormAuthenticator;
+use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
-class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements PasswordAuthenticatedInterface {
+class LoginFormAuthenticator extends AbstractLoginFormAuthenticator {
 	use TargetPathTrait;
 
 	public const LOGIN_ROUTE = 'app_login';
 
 	public function __construct(private SessionInterface $session, private EntityManagerInterface $entityManager, private UrlGeneratorInterface $urlGenerator, private CsrfTokenManagerInterface $csrfTokenManager, private UserPasswordHasherInterface $passwordHasher) {
 	}
-
-	public function supports(Request $request) {
-		return self::LOGIN_ROUTE === $request->attributes->get('_route')
-			&& $request->isMethod('POST');
+	
+	public function authenticate(Request $request) {
+		// TODO: Implement authenticate() method.
 	}
 
 	public function getCredentials(Request $request) {
@@ -75,15 +77,15 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 		return $credentials['password'];
 	}
 
-	public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey) {
-		if ($targetPath = $this->getTargetPath($this->session, $providerKey)) {
+	public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewalName): ?Response {
+		if ($targetPath = $this->getTargetPath($this->session, $firewalName)) {
 			return new RedirectResponse($targetPath);
 		}
 
 		return new RedirectResponse($this->urlGenerator->generate('app_homepage'));
 	}
 
-	public function onAuthenticationFailure(Request $request, AuthenticationException $exception) {
+	public function onAuthenticationFailure(Request $request, AuthenticationException $exception): Response {
 		if ($exception instanceof AccountNotVerifiedAuthenticationException) {
 			$targetUrl = $this->urlGenerator->generate('app_verify_resend_email');
 
@@ -93,7 +95,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 		return parent::onAuthenticationFailure($request, $exception);
 	}
 
-	protected function getLoginUrl() {
+	protected function getLoginUrl(Request $request): string {
 		return $this->urlGenerator->generate(self::LOGIN_ROUTE);
 	}
 }
